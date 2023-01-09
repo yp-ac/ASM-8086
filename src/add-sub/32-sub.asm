@@ -1,8 +1,8 @@
-; Addition of 32 bit numbers
+; Subtraction of 32 bit numbers
 .MODEL SMALL
 .DATA 
-    NUM1 DD 12344417h
-    NUM2 DD 1432E342h 
+    NUM1 DD 14324342h
+    NUM2 DD 1234E417h
     SUM  DD ?
     
 .CODE
@@ -18,8 +18,8 @@
         LEA SI, NUM2
         MOV CX, [SI + 02] ; LOAD MSB
         
-        ADC BX, DX        ; SETS carry flag to 1, if carry is generated for ADD/ADC
-        ADC AX, CX        ; ADD with carry, will add the carry flag in AX
+        SUB BX, DX          
+        SBB AX, CX  
         
         MOV SUM, BX       ; STORE LSB of result
         LEA SI, SUM
